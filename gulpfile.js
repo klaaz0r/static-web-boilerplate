@@ -9,7 +9,7 @@ var gulp = require('gulp'),
 gulp.task('default', ['watch', 'start-server']);
 
 // $gulp build lets you build the css and html
-gulp.task('build', ['css', 'html']);
+gulp.task('build', ['css', 'html', 'vendor']);
 
 //nodemon start a little server
 gulp.task('start-server', function() {
@@ -39,6 +39,7 @@ gulp.task('html', function() {
         .pipe(livereload());
 });
 
+//move vendor items from bower to public folder
 gulp.task('vendor', function() {
     return gulp.src([
             'bower_components/jquery/dist/jquery.min.js',
